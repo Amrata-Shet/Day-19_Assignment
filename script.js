@@ -3,12 +3,10 @@ let selectedRow = null;
 function onFormSubmit() {
   var formData = readFormData();
   insertNewRecord(formData);
-  /*if (selectedRow == null) insertNewRecord(formData);
-  else updateRecord(formData);*/
-
   resetForm();
 }
 
+//fetch checkbox data with atleast 2 check condition
 function handleData()
 {   
     var inputs = document.querySelectorAll('.food'); 
@@ -26,6 +24,7 @@ function handleData()
         return final.substring(0,final.length-1);}
 }
 
+//fetch radio button selection
 function gender(){
   male=document.getElementById("male");
   female=document.getElementById("female");
@@ -72,11 +71,6 @@ function insertNewRecord(data) {
   cell7.innerHTML = data.state;
   cell8 = newRow.insertCell(7);
   cell8.innerHTML = data.country;
-  /*cell9 = newRow.insertCell(8);
-  cell9.innerHTML = `
-  <button class="btn btn-primary" onClick="onEdit(this)">Edit</button>
-  <button class="btn btn-primary" onClick="onDelete(this)">Delete</button>
-  `;*/
 }
 
 //reset functionality should  be executed
@@ -92,37 +86,6 @@ function resetForm() {
   selectedRow = null;
 }
 
-//We will bring the data in form if user click on edit button
-/*function onEdit(td) {
-  selectedRow = td.parentElement.parentElement;
-  document.getElementById("firstname").value = selectedRow.cells[0].innerHTML;
-  document.getElementById("lastname").value = selectedRow.cells[1].innerHTML;
-  document.getElementById("address").value = selectedRow.cells[2].innerHTML;
-  document.getElementById("pincode").value = selectedRow.cells[3].innerHTML;
-  document.getElementById("gender").value = selectedRow.cells[4].innerHTML;
-  document.getElementById("food").value = selectedRow.cells[5].innerHTML;
-  document.getElementById("state").value = selectedRow.cells[6].innerHTML;
-  document.getElementById("country").value = selectedRow.cells[7].innerHTML;
-}*/
 
-//Update the record after populating the data
-/*function updateRecord(formData) {
-  selectedRow.cells[0].innerHTML = formData.firstname;
-  selectedRow.cells[1].innerHTML = formData.lastname;
-  selectedRow.cells[2].innerHTML = formData.address;
-  selectedRow.cells[3].innerHTML = formData.pincode;
-  selectedRow.cells[4].innerHTML = formData.gender;
-  selectedRow.cells[5].innerHTML = formData.food;
-  selectedRow.cells[6].innerHTML = formData.state;
-  selectedRow.cells[7].innerHTML = formData.country;
-}
-
-function onDelete(td) {
-  if (confirm("Do you want to Delete this Employee Data ? ")) {
-    row = td.parentElement;
-    document.getElementById("details_list").deleteRow(row.rowIndex);
-    resetForm();
-  }
-}*/
 
 
